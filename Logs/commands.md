@@ -1,3 +1,13 @@
+Здравствуйте коллеги, по логам пробежался
+По цифрам:
+1. Строк 220000
+2. ERROR 30640
+3. WARN 33318
+4. INFO 131731
+Ошибки и таймауты на сервисы: user-service auth-service inventory-service. Пока нашел только эти, может больше.
+В релизе проблема в связи между сервисами, мб адреса/порты.
+Точно откат потом уже разберемся проблема с сетью или конфигами.
+
 
 # 1 Сколько всего строк в файле?
 ## Всего в файле 220000 строк
@@ -24,7 +34,6 @@
 2026-05-26 23:59:34.650 [http-nio-8080-exec-14] ERROR [requestId=dbe7cece-1213] ru.da.gov.bank.service.AcquiringService - External API call failed: /api/v1/acquiring/charge -> 503 Service Unavailable
 2026-05-26 23:59:42.777 [http-nio-8080-exec-4] ERROR [requestId=f71300b1-5a1b] ru.da.gov.bank.service.AcquiringService - External API call failed: /api/v1/auth/login -> 503 Service Unavailable
 2026-05-26 23:59:56.493 [http-nio-8080-exec-21] ERROR [requestId=31f4bdd3-4242] com.zaxxer.hikari.pool.HikariPool - SQLException: duplicate key value violates unique constraint
-
 # 4 Сколько Timeout в логе?
 ## Timeout: 2429
 # 5 Топ 3 типа ошибок
